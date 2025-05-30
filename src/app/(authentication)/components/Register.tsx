@@ -10,7 +10,7 @@ const Register = () => {
     const [formdata, setFormdata] = useState({ name: '', email: '', password: '', confirmPassword: '' });
     const [error, setError] = useState({ name: '', email: '', password: '', confirmPassword: '' });
     const [showPassword, setShowPassword] = useState({ password: false, confirmPassword: false });
-
+console.log("env",process.env.NEXT_PUBLIC_API_BASE_URL);
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         const { isValid, errors } = validateForm(formdata, {
