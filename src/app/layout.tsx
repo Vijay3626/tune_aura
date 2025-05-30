@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import {Inter  } from "next/font/google";
 import "./globals.css";
+import { ThemeModeScript } from "flowbite-react";
 
 
 const inter = Inter({
@@ -13,6 +14,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Tune Aura",
   description: "Tunes that match your aura.",
+  icons:{
+    icon:'/tune_logo.svg',
+  }
 };
 
 export default function RootLayout({
@@ -22,6 +26,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <ThemeModeScript />
+      </head>
       <body
         className={`${inter.variable} antialiased`}
       >
