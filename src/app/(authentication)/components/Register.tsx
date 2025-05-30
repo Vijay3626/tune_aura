@@ -28,7 +28,7 @@ console.log("env",process.env.NEXT_PUBLIC_API_BASE_URL);
     }
     return (
         <div className="flex flex-col justify-center h-full p-5 w-full md:w-[400px]">
-            <h1 className='text-large text-muted font-bold'>Register</h1>
+            <h1 className='text-large text-muted font-bold'>Registerr</h1>
             <form onSubmit={handleSubmit}>
                 <div className='flex flex-col  my-5'>
                     <label className='flex flex-col'>
