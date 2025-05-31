@@ -23,7 +23,11 @@
 body {
   background: var(--background);
   color: var(--color-text);
-  font-family: var(--font-inter)
+  font-family: var(--font-inter);
+}
+*{
+  scrollbar-width: none;
+
 }
 
 .inputField{
@@ -35,4 +39,15 @@ body {
 }
 .primaryButton{
   @apply bg-transparent cursor-pointer border-2 border-primary hover:bg-primary hover:text-white text-primary font-semibold text-sm rounded-[20px] py-3 px-4 w-full;
+}
+.tab_active:after{
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 10px;
+  background-color: var(--color-primary);
+  transform: translate(-50%, 50%);
 }
