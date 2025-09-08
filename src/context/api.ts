@@ -1,5 +1,7 @@
 "use server";
 import { headers } from "next/headers";
+import dotenv from "dotenv";
+dotenv.config();
 
 interface FetchOptions {
   url: string;
