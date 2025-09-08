@@ -1,7 +1,5 @@
 "use server";
 import { headers } from "next/headers";
-import dotenv from "dotenv";
-dotenv.config();
 
 interface FetchOptions {
   url: string;
@@ -26,8 +24,7 @@ export const globalApiCall = async ({
     );
     const token   = cookies["token"];
     const appMode = (cookies["selectedStatus"] ?? "live").toLowerCase();
-    const baseurl = "https://node-back-tc0e.onrender.com";
-    console.log("baseurl",baseurl);
+    const baseurl = process.env.NEXT_PUBLIC_API_BASE_URL ?? "";
     const qs = dataParam ? "?" + new URLSearchParams(dataParam) : "";
     const fullUrl = `${baseurl}${url}${qs}`;
     console.log('fullUrl: ', fullUrl);
@@ -53,8 +50,8 @@ export const globalApiCall = async ({
     }
     const res   = await fetch(fullUrl, options);
     const data  = await res.json().catch(() => null); // avoid crash on non-JSON
-    return { status: res.status, data, baseurl};
+    return { status: res.status, data };
   } catch (err: any) {
-    return { status: 500, data: { message: `${err.message}, ${process.env.NEXT_PUBLIC_API_BASE_URL}` } };
+    return { status: 500, data: { message: err.message } };
   }
 };
