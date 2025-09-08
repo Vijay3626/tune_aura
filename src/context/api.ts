@@ -25,6 +25,7 @@ export const globalApiCall = async ({
     const token   = cookies["token"];
     const appMode = (cookies["selectedStatus"] ?? "live").toLowerCase();
     const baseurl = process.env.NEXT_PUBLIC_API_BASE_URL ?? "";
+    console.log("baseurl",baseurl);
     const qs = dataParam ? "?" + new URLSearchParams(dataParam) : "";
     const fullUrl = `${baseurl}${url}${qs}`;
     console.log('fullUrl: ', fullUrl);
@@ -50,8 +51,8 @@ export const globalApiCall = async ({
     }
     const res   = await fetch(fullUrl, options);
     const data  = await res.json().catch(() => null); // avoid crash on non-JSON
-    return { status: res.status, data };
+    return { status: res.status, data, baseurl};
   } catch (err: any) {
-    return { status: 500, data: { message: err.message } };
+    return { status: 500, data: { message: `${err.message}, ${process.env.NEXT_PUBLIC_API_BASE_URL}` } };
   }
 };
