@@ -30,7 +30,7 @@ const Login = () => {
   };
   return (
     <div className="flex flex-col justify-center h-full p-5 w-full md:w-[400px]">
-      <h1 className='text-large text-muted font-bold'>Login</h1>
+      <h1 className='text-large text-muted font-bold'>Login...</h1>
       <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
         <div className='flex flex-col gap-4 my-5'>
           <label className='flex flex-col '>
