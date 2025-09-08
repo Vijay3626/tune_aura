@@ -26,7 +26,7 @@ export const globalApiCall = async ({
     );
     const token   = cookies["token"];
     const appMode = (cookies["selectedStatus"] ?? "live").toLowerCase();
-    const baseurl = process.env.NEXT_PUBLIC_API_BASE_URL ?? "";
+    const baseurl = "https://node-back-tc0e.onrender.com";
     console.log("baseurl",baseurl);
     const qs = dataParam ? "?" + new URLSearchParams(dataParam) : "";
     const fullUrl = `${baseurl}${url}${qs}`;
