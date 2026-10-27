@@ -1,8 +1,17 @@
+'use client'
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect } from 'react'
 import image from "../../../../public/login2.png"
 import image2 from "../../../../public/login1.png"
+import { userList } from '@/app/(authentication)/authServices'
 const UserList = () => {
+    useEffect(()=>{
+        async function fetchUsers(){
+            const res = await userList();
+            console.log('res: ', res);
+        }
+        fetchUsers()
+    },[])
     return (
         <div>
             {Array.from({ length: 10 }).map((item, index) => {

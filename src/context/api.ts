@@ -27,7 +27,6 @@ export const globalApiCall = async ({
     const baseurl = process.env.NEXT_PUBLIC_API_BASE_URL ?? "";
     const qs = dataParam ? "?" + new URLSearchParams(dataParam) : "";
     const fullUrl = `${baseurl}${url}${qs}`;
-    console.log('fullUrl: ', fullUrl);
     const requestHeaders: HeadersInit = {
       Accept: "application/json",
       "App-Mode": `_${appMode}`,

@@ -14,3 +14,10 @@ export const handleRegister = async (e: {
 
   return result;
 };
+export const userList = async() =>{
+  const result = await globalApiCall({
+    url: `userlist`,
+    method: 'GET',
+  });
+  return result;
+}
